@@ -119,11 +119,9 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             return new Dimension(15, 15);
         }
         
-        public void run() {
-            
-        }
+        //public void run() {}
         
-       /*public void run() {
+       public void run() {
 
             try {
                
@@ -229,7 +227,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             setSize(getPreferredSize());
             setLocation(x, y);
 
-        } */
+        } 
 
     @Override
     public Ball clone() {
@@ -267,7 +265,9 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
         // cambia color
         for(Ball item : bolita2.getBalls()){
             item.setBallColor("blue");
-        }           
+            //System.out.println(item.ballcolor);
+        }  
+        System.out.println(bolita2.getBalls().get(1).ballcolor);
         // agrega a la factory hash
         BallFactory.addPrototype(bolita2.getBallName(), bolita2);                      //Tercera lista de precios para clientes VIP a partir de la lista           //de mayoreo con 10% de descuento sobre la lista de precios de mayoreo.           PriceListImpl vipPriceList = (PriceListImpl)                   PrototypeFactory.getPrototype("Wholesale Price List");           vipPriceList.setListName("VIP Price List");           for(ProductItem item : vipPriceList.getProducts()){               item.setPrice(item.getPrice()*0.90);           }                      //Imprimimos las listas de precios.           System.out.println(standarPriceList);           System.out.println(wholesalePriceList);           System.out.println(vipPriceList);       }   }
 
@@ -277,8 +277,9 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
         
         for(Ball item : bolita3.getBalls()){
             item.setBallColor("orange");
+            //System.out.println(item.ballcolor);
         }
-          
+         System.out.println(bolita2.getBalls().get(1).ballcolor);
         //Imprimimos las listas de bolitas
         System.out.println(standardBolita);
         System.out.println(bolita2);
