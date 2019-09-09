@@ -11,7 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class AnimatedBalls {
     ArrayList<Ball> arr = new ArrayList();      //arraylist que proviene de algun patron
-    public static void main(String[] args) {
+    public static void main(String[] args) {      
         ArrayList<Ball> array = new ArrayList();
         for(int i=0;i<500;i++){
             array.add(new Ball("blue",30,30,90));           //color,velocid X, velocid Y, angulo
@@ -27,7 +27,7 @@ public class AnimatedBalls {
         
         EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run() {
+            public void run() {        
                 try {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (ClassNotFoundException ex) {
@@ -46,7 +46,7 @@ public class AnimatedBalls {
                 frame.setSize(800, 800);
                 frame.setVisible(true);
             }
-        });
-    }
+        }); 
+    } 
 
 }

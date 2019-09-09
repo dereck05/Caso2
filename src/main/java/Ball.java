@@ -18,9 +18,10 @@ import javax.swing.SwingUtilities;
  *
  * @author derec
  */
-public class Ball extends JPanel implements Runnable {
+public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
 
         Color color;
+        String ballcolor;
         int diameter;
         long delay;
         public int orientacion;
@@ -65,6 +66,40 @@ public class Ball extends JPanel implements Runnable {
             new Thread(this).start();
 
         }
+        
+        public String getBallColor() {
+            return ballcolor;
+        }
+        
+        public int getVX() {
+            return vx;
+        }
+        
+        public int getVY() {
+            return vy;
+        }
+        
+        public int getOrientation() {
+            return orientacion;
+        }
+    
+        public void setBallColor(String ballColor) {
+            this.ballcolor = ballColor;
+        }
+        
+        public void setVX(int vx) {
+            this.vx = vx;
+        }
+        
+        public void setVY(int vy) {
+            this.vy = vy;
+        }
+        
+        public void setOrientation(int orientacion) {
+            this.orientacion = orientacion;
+        }
+        
+        
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
@@ -83,8 +118,12 @@ public class Ball extends JPanel implements Runnable {
         public Dimension getPreferredSize() {
             return new Dimension(15, 15);
         }
-
+        
         public void run() {
+            
+        }
+        
+       /*public void run() {
 
             try {
                
@@ -190,5 +229,59 @@ public class Ball extends JPanel implements Runnable {
             setSize(getPreferredSize());
             setLocation(x, y);
 
+        } */
+
+    @Override
+    public Ball clone() {
+        return new Ball(this.ballcolor,this.vx, this.vy,this.orientacion);
+    }
+
+    @Override
+    public Ball deepClone() {
+        return clone();
+    }
+    
+    @Override
+    public String toString() {
+        String msj = "Ball = " + "color:" + ballcolor + ", vx=" + vx + ", vy "+ vy + "orientacion:" + orientacion; 
+        return msj.toString();
+    }
+    
+    
+     public static void main(String[] args) {
+        //Creamos la lista de bolitas inicial
+        BallListImpl standardBolita = new BallListImpl("Bolita1");
+        
+        for(int c = 1; c<=5; c++){
+            Ball item = new Ball("red",30,30,90);
+            standardBolita.addProductItem(item);
         }
+        // se agrega a la fabrica, al hash de protypes
+        BallFactory.addPrototype(standardBolita.getBallName(), standardBolita);
+       
+        //Segunda lista de bolitas
+        BallListImpl bolita2 = (BallListImpl) BallFactory.getPrototype("Bolita1");
+        
+        bolita2.setBallName("Bolita2");
+        
+        // cambia color
+        for(Ball item : bolita2.getBalls()){
+            item.setBallColor("blue");
+        }           
+        // agrega a la factory hash
+        BallFactory.addPrototype(bolita2.getBallName(), bolita2);                      //Tercera lista de precios para clientes VIP a partir de la lista           //de mayoreo con 10% de descuento sobre la lista de precios de mayoreo.           PriceListImpl vipPriceList = (PriceListImpl)                   PrototypeFactory.getPrototype("Wholesale Price List");           vipPriceList.setListName("VIP Price List");           for(ProductItem item : vipPriceList.getProducts()){               item.setPrice(item.getPrice()*0.90);           }                      //Imprimimos las listas de precios.           System.out.println(standarPriceList);           System.out.println(wholesalePriceList);           System.out.println(vipPriceList);       }   }
+
+        //Tercera lista de bolitas
+        BallListImpl bolita3 = (BallListImpl) BallFactory.getPrototype("Bolita2");
+        bolita3.setBallName("Bolita3");
+        
+        for(Ball item : bolita3.getBalls()){
+            item.setBallColor("orange");
+        }
+          
+        //Imprimimos las listas de bolitas
+        System.out.println(standardBolita);
+        System.out.println(bolita2);
+        System.out.println(bolita3);     
+     }
 }
