@@ -10,11 +10,11 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class AnimatedBalls {
-    ArrayList<Ball> arr = new ArrayList();
+    ArrayList<Ball> arr = new ArrayList();      //arraylist que proviene de algun patron
     public static void main(String[] args) {
         ArrayList<Ball> array = new ArrayList();
         for(int i=0;i<500;i++){
-            array.add(new Ball("blue",30,30,90));
+            array.add(new Ball("blue",30,30,90));           //color,velocid X, velocid Y, angulo
             array.add(new Ball("green",10,10,180));
         }
         
@@ -39,7 +39,7 @@ public class AnimatedBalls {
                 JFrame frame = new JFrame();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
-                for (Ball i : arr){
+                for (Ball i : arr){                     //agrega las bolitas al frame de la ventana
                     frame.add(i);
                 }
                 
