@@ -14,8 +14,8 @@ public class AnimatedBalls {
     public static void main(String[] args) {      
         ArrayList<Ball> array = new ArrayList();
         for(int i=0;i<500;i++){
-            array.add(new Ball("blue",30,30,90));           //color,velocid X, velocid Y, angulo
-            array.add(new Ball("green",10,10,180));
+            array.add(new Ball("blue",30,90));           //color,velocid X, velocid Y, angulo
+            array.add(new Ball("green",10,180));
         }
         
         

@@ -38,7 +38,7 @@ public class BallListImpl implements IPrototype<BallListImpl> {
     @Override
     public BallListImpl clone() {
         BallListImpl clone = new BallListImpl(ballName);
-        clone.setBallName(ballName);
+        clone.setBalls(balls);
         return clone;
     }
 
@@ -50,7 +50,7 @@ public class BallListImpl implements IPrototype<BallListImpl> {
             cloneBalls.add(cloneItem);
         }
         BallListImpl clone = new BallListImpl(ballName);
-        clone.setBalls(balls);
+        clone.setBalls(cloneBalls);
         return clone;
     }
     
