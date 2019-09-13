@@ -12,16 +12,17 @@ import javax.swing.SwingUtilities;
 
 
 
-public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
+public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
         Color color;
-        String ballcolor;
+        String ballcol;
         int diameter = 15;
         long delay = 100;
         private int orientacion;
         private int velocidad;
+       
         
 
-        public Ball(String ballCol, int velocid,int orient) {
+        public Ball(String ballcolor,int vel,int orient) {
             setLayout(null);
             if (ballcolor == "red") {
                 color = Color.red;
@@ -53,35 +54,35 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             
             
             orientacion = orient;
-            velocidad = velocid;
-            
-            ballcolor=ballCol;
+            velocidad= vel;
+           
+            ballcol= ballcolor;
 
             new Thread(this).start();
 
         }
         
         public String getBallColor() {
-            return ballcolor;
+            return ballcol;
         }
         
         public int getVelocidad() {
             return velocidad;
         }
-        
+
        
         public int getOrientation() {
             return orientacion;
         }
     
         public void setBallColor(String ballColor) {
-            this.ballcolor = ballColor;
+            this.ballcol = ballColor;
         }
         
         public void setVelocidad(int v) {
             this.velocidad = v;
         }
-        
+
         
         public void setOrientation(int orientacion) {
             this.orientacion = orientacion;
@@ -107,24 +108,28 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             return new Dimension(15, 15);
         }
         
-        public void run() {}
+        //public void run() {}
         
-       /*public void run() {
-
+        public void run() {
+            
             try {
-               
+               System.out.println("AQUIIIIIIIIIII  1111111");
                 SwingUtilities.invokeAndWait(new Runnable() {
                     @Override
                     public void run() {
-                        int x = (int) (Math.round(Math.random() * getParent().getWidth()));
-                        int y = (int) (Math.round(Math.random() * getParent().getHeight()));
-
+                        
+                        int x = (int) (Math.round(Math.random() * 800));
+                        int y = (int) (Math.round(Math.random() * 800));
+                        
                         setLocation(x, y);
+                        System.out.println("AQUIIIIIIIIIII  333333");
                     }
                 });
             } catch (InterruptedException exp) {
+                System.out.println("AQUIIIIIIIIIII  4444444");
                 exp.printStackTrace();
             } catch (InvocationTargetException exp) {
+                System.out.println("AQUIIIIIIIIIII  555555");
                 exp.printStackTrace();
             }
 
@@ -148,7 +153,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
                                 repaint();
                             }
                             if(orientacion == 45){
-                                move45();
+                                //move45();
                                 repaint();
                             }
                         }
@@ -159,7 +164,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
                     exp.printStackTrace();
                 }
             }
-        }
+        } 
 
         public void move180() {
 
@@ -205,11 +210,11 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             setSize(getPreferredSize());
             setLocation(x, y);
 
-        } */
+        }  
 
         @Override
         public Ball clone() {
-            return new Ball(this.ballcolor,this.velocidad,this.orientacion);
+            return new Ball(this.ballcol,this.velocidad,this.orientacion);
         }
 
         @Override
@@ -219,7 +224,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
 
         @Override
         public String toString() {
-            String msj = "Ball = " + "color:" + ballcolor + ", velocidad=" + velocidad + ",orientacion:" + orientacion; 
+            String msj = "Ball = " + "color:" +  ballcol+ ", velocidad=" + velocidad + ",orientacion:" + orientacion; 
             return msj.toString();
         }
         
@@ -245,18 +250,18 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             @Override
             public Ball build(){
                 return new Ball(ballcolor,velocidad,orientacion);
-            }
+           }
         }
         
     
     
-     public static void main(String[] args) {
+    /* public static void main(String[] args) {
          
-       /* //Creamos la lista de bolitas inicial
+        //Creamos la lista de bolitas inicial
         BallListImpl standardBolita = new BallListImpl("Bolita1");
         
         for(int c = 1; c<=5; c++){
-            Ball item = new Ball("red",30,30,90);
+            Ball item = new Ball("red",30,90);
             standardBolita.addProductItem(item);
         }
         // se agrega a la fabrica, al hash de protypes
@@ -285,9 +290,9 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball> {
             //System.out.println(item.ballcolor);
         }
          System.out.println(bolita2.getBalls().get(1).ballcolor);
-        //Imprimimos las listas de bolitas
+        //Imprimimos las listas de bolitas 
         System.out.println(standardBolita);
         System.out.println(bolita2);
-        System.out.println(bolita3);     */
-     }
+        System.out.println(bolita3);    
+     }*/
 }
