@@ -1,3 +1,12 @@
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +18,6 @@
  * @author naty9
  */
 public class View extends javax.swing.JFrame {
-
     /**
      * Creates new form View1
      */
@@ -162,14 +170,23 @@ public class View extends javax.swing.JFrame {
     private void jTextCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCantidadActionPerformed
-    
-    SuperFactory superFactory = new SuperFactory();
+
+   
     private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
         // TODO add your handling code here:
-       System.out.println(jComboColor.getSelectedItem().toString()); 
-       superFactory.ballCreator(jComboPatron.getSelectedItem().toString() , jComboColor.getSelectedItem().toString(), 
+       //System.out.println(jComboColor.getSelectedItem().toString()); 
+       SuperFactory superFactory = new SuperFactory();
+       AnimatedBalls anim = new AnimatedBalls( superFactory.ballCreator(jComboPatron.getSelectedItem().toString() , jComboColor.getSelectedItem().toString(), 
                Integer.parseInt(jComboVelocidad.getSelectedItem().toString()), Integer.parseInt(jComboDireccion.getSelectedItem().toString()),
-               Integer.parseInt(jTextCantidad.getText()));
+               Integer.parseInt(jTextCantidad.getText()))); 
+
+     /* ArrayList<Ball> array = new ArrayList();
+        for(int i=0;i<500;i++){
+            array.add(new Ball("blue",30,90));           //color,velocid X, velocid Y, angulo
+            array.add(new Ball("green",10,180));
+        } 
+        System.out.println(Arrays.toString(array.toArray()));
+       AnimatedBalls anim = new AnimatedBalls(array); */
     }//GEN-LAST:event_jButtonGenerarActionPerformed
 
     /**
