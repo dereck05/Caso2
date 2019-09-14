@@ -1,5 +1,4 @@
 
-import PoolExample.ObjectFactory;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -13,8 +12,8 @@ import java.util.concurrent.LinkedBlockingQueue;
  *
  * @author naty9
  */
-public abstract class ObjectPool implements PoolExample.IObjectPool,ObjectFactory{
-    private int size;	
+public abstract class ObjectPool implements IObjectPool, IObjectFactory{
+   private int size;	
    private boolean shutdown;
    private BlockingQueue objects;
 	

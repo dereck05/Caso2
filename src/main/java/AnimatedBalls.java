@@ -11,17 +11,17 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class AnimatedBalls {
     ArrayList<Ball> arr = new ArrayList();      //arraylist que proviene de algun patron
-    
-   /* public static void main(String[] args) {      
-        ArrayList<Ball> array = new ArrayList();
-        for(int i=0;i<500;i++){
-            array.add(new Ball("blue",30,90));           //color,velocid X, velocid Y, angulo
-            array.add(new Ball("green",10,180));
-        }
-        
-        
-        new AnimatedBalls(array);
-    } */
+    public static JFrame frame =new JFrame();
+//    public static void main(String[] args) {      
+//        ArrayList<Ball> array = new ArrayList();
+//        for(int i=0;i<10;i++){
+//            array.add(new Ball("blue",15,15,180));           //color,velocid X, velocid Y, angulo
+//            array.add(new Ball("green",10,10,90));
+//        }
+//        
+//        
+//        new AnimatedBalls(array);
+//    }
 
     public AnimatedBalls(ArrayList<Ball> array) {
         this.arr = array;
@@ -37,7 +37,7 @@ public class AnimatedBalls {
                 } catch (UnsupportedLookAndFeelException ex) {
                 }
 
-                JFrame frame = new JFrame();
+               
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
                 for (Ball i : arr){                     //agrega las bolitas al frame de la ventana

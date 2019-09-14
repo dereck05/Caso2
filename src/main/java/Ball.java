@@ -153,7 +153,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
                                 repaint();
                             }
                             if(orientacion == 45){
-                                //move45();
+                                move45();
                                 repaint();
                             }
                         }
@@ -252,47 +252,5 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
                 return new Ball(ballcolor,velocidad,orientacion);
            }
         }
-        
-    
-    
-    /* public static void main(String[] args) {
-         
-        //Creamos la lista de bolitas inicial
-        BallListImpl standardBolita = new BallListImpl("Bolita1");
-        
-        for(int c = 1; c<=5; c++){
-            Ball item = new Ball("red",30,90);
-            standardBolita.addProductItem(item);
-        }
-        // se agrega a la fabrica, al hash de protypes
-        BallFactory.addPrototype(standardBolita.getBallName(), standardBolita);
-       
-        //Segunda lista de bolitas
-        BallListImpl bolita2 = (BallListImpl) BallFactory.getPrototype("Bolita1");
-        
-        bolita2.setBallName("Bolita2");
-        
-        // cambia color
-        for(Ball item : bolita2.getBalls()){
-            item.setBallColor("blue");
-            //System.out.println(item.ballcolor);
-        }  
-        System.out.println(bolita2.getBalls().get(1).ballcolor);
-        // agrega a la factory hash
-        BallFactory.addPrototype(bolita2.getBallName(), bolita2);                      //Tercera lista de precios para clientes VIP a partir de la lista           //de mayoreo con 10% de descuento sobre la lista de precios de mayoreo.           PriceListImpl vipPriceList = (PriceListImpl)                   PrototypeFactory.getPrototype("Wholesale Price List");           vipPriceList.setListName("VIP Price List");           for(ProductItem item : vipPriceList.getProducts()){               item.setPrice(item.getPrice()*0.90);           }                      //Imprimimos las listas de precios.           System.out.println(standarPriceList);           System.out.println(wholesalePriceList);           System.out.println(vipPriceList);       }   }
 
-        //Tercera lista de bolitas
-        BallListImpl bolita3 = (BallListImpl) BallFactory.getPrototype("Bolita2");
-        bolita3.setBallName("Bolita3");
-        
-        for(Ball item : bolita3.getBalls()){
-            item.setBallColor("orange");
-            //System.out.println(item.ballcolor);
-        }
-         System.out.println(bolita2.getBalls().get(1).ballcolor);
-        //Imprimimos las listas de bolitas 
-        System.out.println(standardBolita);
-        System.out.println(bolita2);
-        System.out.println(bolita3);    
-     }*/
 }

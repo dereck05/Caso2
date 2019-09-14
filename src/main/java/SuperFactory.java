@@ -23,22 +23,21 @@ public class SuperFactory {
             BallListImpl standardBolita = new BallListImpl("Bolita1");
             Ball item = new Ball(color,velocidad,orientacion);
             standardBolita.addProductItem(item);   
-            for(int c = 0; c < cantidad; c++){
+            for(int c = 1; c < cantidad; c++){
                 Ball cloneItem = item.clone();
                 standardBolita.addProductItem(cloneItem);    
             }
             arr = standardBolita.getBalls();
-            System.out.println(Arrays.toString(arr.toArray()));
+            //System.out.println(Arrays.toString(arr.toArray()));
         }
         else if (patron.equals("Builder")){
             for (int i=0;i<cantidad;i++){
-                arr.add(new Ball.BallBuilder().setColor(color).setVelocidad(velocidad).setOrientacion(cantidad).build());
+                arr.add(new Ball.BallBuilder().setColor(color).setVelocidad(velocidad).setOrientacion(orientacion).build());
             }
         }
         else if (patron.equals("Factory")){
             BallFactoryMethod factory = new BallFactoryMethod();
-            for (int i=0;i<cantidad;i++){
-                
+            for (int i=0;i<cantidad;i++){  
                 arr.add(factory.createBall(color, velocidad, orientacion));
             }
         }
