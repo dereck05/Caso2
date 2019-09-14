@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +20,15 @@ public class SuperFactory {
     public ArrayList<Ball> ballCreator(String patron,String color,int velocidad, int orientacion,int cantidad){
         ArrayList<Ball> arr = new ArrayList();
         if(patron.equals("Prototype")){
-            
+            BallListImpl standardBolita = new BallListImpl("Bolita1");
+            Ball item = new Ball(color,velocidad,orientacion);
+            standardBolita.addProductItem(item);   
+            for(int c = 0; c < cantidad; c++){
+                Ball cloneItem = item.clone();
+                standardBolita.addProductItem(cloneItem);    
+            }
+            arr = standardBolita.getBalls();
+            System.out.println(Arrays.toString(arr.toArray()));
         }
         else if (patron.equals("Builder")){
             for (int i=0;i<cantidad;i++){
