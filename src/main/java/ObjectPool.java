@@ -29,7 +29,7 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
    public void init() {
       objects = new ArrayList<>();
       for (int i = 0; i < size; i++) {
-         objects.add(new Ball());
+         objects.add((Ball)createNew());
       }
    }
 	
@@ -43,6 +43,8 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
         Ball t = null;
         t = (Ball) objects.get(i);
         arr.add(t);
+        objects.remove(i);
+        
     }
 
     return arr;

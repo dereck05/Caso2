@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,6 +17,10 @@ public class SuperFactory {
     public SuperFactory(){
         
     }
+    static long start = System.currentTimeMillis();
+    static long finish;
+    
+    
     
     public ArrayList<Ball> ballCreator(String patron,String color,int velocidad, int orientacion,int cantidad){
         ArrayList<Ball> arr = new ArrayList();
@@ -28,18 +33,21 @@ public class SuperFactory {
                 standardBolita.addProductItem(cloneItem);    
             }
             arr = standardBolita.getBalls();
+            finish = System.currentTimeMillis();
             
         }
         else if (patron.equals("Builder")){
             for (int i=0;i<cantidad;i++){
                 arr.add(new Ball.BallBuilder().setColor(color).setVelocidad(velocidad).setOrientacion(orientacion).build());
             }
+            finish = System.currentTimeMillis();
         }
         else if (patron.equals("Factory")){
             BallFactoryMethod factory = new BallFactoryMethod();
             for (int i=0;i<cantidad;i++){  
                 arr.add(factory.createBall(color, velocidad, orientacion));
             }
+            finish = System.currentTimeMillis();
         }
         else if (patron.equals("Pool")){
             BallPool pool = new BallPool(200); //Pool de objetos bolita
@@ -47,8 +55,9 @@ public class SuperFactory {
             for (int i=0;i<array.size();i++){  
                 arr.add((Ball)array.get(i));
             }
+            finish = System.currentTimeMillis();
         }
-        
+        JOptionPane.showMessageDialog(null,finish-start + " milisegundos", "Tiempo", JOptionPane.INFORMATION_MESSAGE);
         return arr;
     }
 }
