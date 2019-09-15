@@ -14,9 +14,9 @@ public class BallPool extends ObjectPool{
         super(size);
     }
 
-    @Override
-    public Object createNew() {
-        return new Ball("red",30,90);
+    
+    public Object createNew(String color, int velocid, int orient) {
+        return new Ball(color,velocid,orient);
     }
     
 }

@@ -61,6 +61,44 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
             new Thread(this).start();
 
         }
+        public Ball(){
+            setLayout(null);
+            String ballcolor = "green";
+            orientacion = 90;
+            velocidad= 5;
+           
+            ballcol= ballcolor;
+            if (ballcolor == "red") {
+                color = Color.red;
+            } else if (ballcolor == "blue") {
+                color = Color.blue;
+            } else if (ballcolor == "black") {
+                color = Color.black;
+            } else if (ballcolor == "cyan") {
+                color = Color.cyan;
+            } else if (ballcolor == "darkGray") {
+                color = Color.darkGray;
+            } else if (ballcolor == "gray") {
+                color = Color.gray;
+            } else if (ballcolor == "green") {
+                color = Color.green;
+            } else if (ballcolor == "yellow") {
+                color = Color.yellow;
+            } else if (ballcolor == "lightGray") {
+                color = Color.lightGray;
+            } else if (ballcolor == "magenta") {
+                color = Color.magenta;
+            } else if (ballcolor == "orange") {
+                color = Color.orange;
+            } else if (ballcolor == "pink") {
+                color = Color.pink;
+            } else if (ballcolor == "white") {
+                color = Color.white;
+            }
+
+            new Thread(this).start();
+
+        }
         
         public String getBallColor() {
             return ballcol;
@@ -113,23 +151,23 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
         public void run() {
             
             try {
-               System.out.println("AQUIIIIIIIIIII  1111111");
+              
                 SwingUtilities.invokeAndWait(new Runnable() {
                     @Override
                     public void run() {
                         
-                        int x = (int) (Math.round(Math.random() * 800));
-                        int y = (int) (Math.round(Math.random() * 800));
+                        int x = (int)(Math.round(Math.random() * 800));
+                        int y = (int)(Math.round(Math.random() * 800));
                         
                         setLocation(x, y);
-                        System.out.println("AQUIIIIIIIIIII  333333");
+                        
                     }
                 });
             } catch (InterruptedException exp) {
-                System.out.println("AQUIIIIIIIIIII  4444444");
+              
                 exp.printStackTrace();
             } catch (InvocationTargetException exp) {
-                System.out.println("AQUIIIIIIIIIII  555555");
+              
                 exp.printStackTrace();
             }
 
@@ -154,6 +192,10 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
                             }
                             if(orientacion == 45){
                                 move45();
+                                repaint();
+                            }
+                            if(orientacion ==135){
+                                move135();
                                 repaint();
                             }
                         }
@@ -193,7 +235,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
             setLocation(x, y);
 
         }
-        public void move45() {
+        public void move135() {
 
             int x = getX();
             int y = getY();
@@ -211,6 +253,25 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
             setLocation(x, y);
 
         }  
+        public void move45() {
+
+            int x = getX();
+            int y = getY();
+
+            
+            if (y + velocidad < 0 || y + diameter + velocidad > getParent().getHeight()) {
+                velocidad *= -1;
+            }
+            if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
+                velocidad *= -1;
+            }
+            x -= velocidad;
+            y += velocidad;
+            setSize(getPreferredSize());
+            
+            setLocation(x, y);
+
+        } 
 
         @Override
         public Ball clone() {

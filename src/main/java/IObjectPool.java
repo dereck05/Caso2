@@ -10,6 +10,6 @@
  */
 public interface IObjectPool<T> {
     public T getObject();
-    public void releseObject(T object);
+ 
     void shutdown();
 }

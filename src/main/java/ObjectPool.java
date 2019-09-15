@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -15,7 +16,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public abstract class ObjectPool implements IObjectPool, IObjectFactory{
    private int size;	
    private boolean shutdown;
-   private BlockingQueue objects;
+   private ArrayList<Ball> objects;
 	
    public ObjectPool(int size) {
       this.size = size;
@@ -26,43 +27,43 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
    /*
     * initiate the pool with fix size
     */
-   private void init() {
-      objects = new LinkedBlockingQueue();
+
+   public void init() {
+      objects = new ArrayList<>();
       for (int i = 0; i < size; i++) {
-         objects.add(createNew());
+         objects.add(new Ball());
       }
    }
 	
    //getObject() method: will get an object from the pool and will deliver it to the user;
    
-   @Override
-   public Ball getObject() {
-      if (!shutdown) {
-         Ball t = null;
-         			
-         try {
-            t = (Ball) objects.take();
-         }
-         catch (Exception e) {
-            e.printStackTrace();
-         }
-			
-         return t;
-      }
+  
+   public ArrayList<Ball> getObjects(int cantidad) {
+   ArrayList<Ball> arr = new ArrayList<>();
+   for(int i = 0;i<cantidad;i++){
+        Ball t = null;
+        t = (Ball) objects.get(i);
+        arr.add(t);
+    }
+
+    return arr;
+    }
+   public setObjects(ArrayList<Ball> arr ,String color,int velocidad,int orient){
+        ArrayList<Ball> arr = new ArrayList<>();
+        for(int i = 0;i<arr.size();i++){
+            Ball t = null;
+            b = (Ball)objects.get(i);
+            
+            arr.add(b) ;
+        }
+
+        return arr;
+   }
 		
-      throw new IllegalStateException("Object pool is already shutdown.");
-   }
+      
    
-   //releaseObject() method: will return an object to the pool;
-	
-   @Override
-   public void releseObject(Object ball){
-      try {
-         objects.offer(ball);
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+   
+ 
 	
    //shutdown() method: will close down the pool.
    

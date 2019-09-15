@@ -180,13 +180,7 @@ public class View extends javax.swing.JFrame {
                Integer.parseInt(jComboVelocidad.getSelectedItem().toString()), Integer.parseInt(jComboDireccion.getSelectedItem().toString()),
                Integer.parseInt(jTextCantidad.getText()))); 
 
-     /* ArrayList<Ball> array = new ArrayList();
-        for(int i=0;i<500;i++){
-            array.add(new Ball("blue",30,90));           //color,velocid X, velocid Y, angulo
-            array.add(new Ball("green",10,180));
-        } 
-        System.out.println(Arrays.toString(array.toArray()));
-       AnimatedBalls anim = new AnimatedBalls(array); */
+    
     }//GEN-LAST:event_jButtonGenerarActionPerformed
 
     /**

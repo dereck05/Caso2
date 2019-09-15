@@ -28,7 +28,7 @@ public class SuperFactory {
                 standardBolita.addProductItem(cloneItem);    
             }
             arr = standardBolita.getBalls();
-            //System.out.println(Arrays.toString(arr.toArray()));
+            
         }
         else if (patron.equals("Builder")){
             for (int i=0;i<cantidad;i++){
@@ -42,7 +42,8 @@ public class SuperFactory {
             }
         }
         else if (patron.equals("Pool")){
-            
+            BallPool pool = new BallPool(200);
+            pool.getObject();
         }
         
         return arr;
