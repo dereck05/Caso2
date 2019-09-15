@@ -1,7 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,6 +36,7 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
    //getObject() method: will get an object from the pool and will deliver it to the user;
    
   
+   @Override
    public ArrayList<Ball> getObjects(int cantidad) {
    ArrayList<Ball> arr = new ArrayList<>();
    for(int i = 0;i<cantidad;i++){
@@ -48,16 +47,18 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
 
     return arr;
     }
-   public setObjects(ArrayList<Ball> arr ,String color,int velocidad,int orient){
-        ArrayList<Ball> arr = new ArrayList<>();
+    public ArrayList<Ball> setObjects(ArrayList<Ball> arr ,String color,int velocidad,int orient){
+        ArrayList<Ball> arr2 = new ArrayList<>();
         for(int i = 0;i<arr.size();i++){
             Ball t = null;
-            b = (Ball)objects.get(i);
-            
-            arr.add(b) ;
+            t = (Ball)arr.get(i);
+            t.setBallColor(color);
+            t.setVelocidad(velocidad);
+            t.setOrientation(orient);
+            arr2.add(t) ;
         }
 
-        return arr;
+        return arr2;
    }
 		
       

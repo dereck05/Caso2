@@ -42,8 +42,11 @@ public class SuperFactory {
             }
         }
         else if (patron.equals("Pool")){
-            BallPool pool = new BallPool(200);
-            pool.getObject();
+            BallPool pool = new BallPool(200); //Pool de objetos bolita
+            ArrayList array = pool.setObjects(pool.getObjects(cantidad), color, velocidad, orientacion);
+            for (int i=0;i<array.size();i++){  
+                arr.add((Ball)array.get(i));
+            }
         }
         
         return arr;

@@ -11,5 +11,5 @@
  * @author naty9
  */
 public interface IObjectFactory<T>{
-    public abstract T createNew();
+    public abstract T createNew(String a , int b, int c);
 }

@@ -9,7 +9,9 @@
  * @author naty9
  */
 public interface IObjectPool<T> {
-    public T getObject();
+    public T getObjects(int x);
+    
+ 
  
     void shutdown();
 }

@@ -48,8 +48,6 @@ public class View extends javax.swing.JFrame {
         jComboPatron = new javax.swing.JComboBox<>();
         jButtonGenerar = new javax.swing.JButton();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\naty9\\OneDrive\\Documentos\\TEC\\6 Semestre\\Diseño de Software\\balls.jpg")); // NOI18N
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -78,13 +76,18 @@ public class View extends javax.swing.JFrame {
         jLabel7.setText("Patrón:");
 
         jComboColor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jComboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "red", "blue", "black", "cyan", "darkGray", "gray", "green", "yellow", "lightGray", "magenta", "orange", "pink", "white" }));
+        jComboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "red", "blue", "black", "cyan", "green", "yellow", "magenta", "orange", "pink" }));
+        jComboColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboColorActionPerformed(evt);
+            }
+        });
 
         jComboDireccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jComboDireccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "45", "90", "135", "180", "225", "270", "315", " " }));
+        jComboDireccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "45", "90", "135", "180" }));
 
         jComboVelocidad.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jComboVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "40" }));
 
         jComboPatron.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jComboPatron.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Prototype", "Factory", "Builder", "Pool" }));
@@ -182,6 +185,10 @@ public class View extends javax.swing.JFrame {
 
     
     }//GEN-LAST:event_jButtonGenerarActionPerformed
+
+    private void jComboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboColorActionPerformed
 
     /**
      * @param args the command line arguments

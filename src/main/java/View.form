@@ -3,11 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\naty9\OneDrive\Documentos\TEC\6 Semestre\Dise&#xf1;o de Software\balls.jpg"/>
-        </Property>
-      </Properties>
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -181,23 +176,22 @@
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="13">
+          <StringArray count="9">
             <StringItem index="0" value="red"/>
             <StringItem index="1" value="blue"/>
             <StringItem index="2" value="black"/>
             <StringItem index="3" value="cyan"/>
-            <StringItem index="4" value="darkGray"/>
-            <StringItem index="5" value="gray"/>
-            <StringItem index="6" value="green"/>
-            <StringItem index="7" value="yellow"/>
-            <StringItem index="8" value="lightGray"/>
-            <StringItem index="9" value="magenta"/>
-            <StringItem index="10" value="orange"/>
-            <StringItem index="11" value="pink"/>
-            <StringItem index="12" value="white"/>
+            <StringItem index="4" value="green"/>
+            <StringItem index="5" value="yellow"/>
+            <StringItem index="6" value="magenta"/>
+            <StringItem index="7" value="orange"/>
+            <StringItem index="8" value="pink"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboColorActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -209,16 +203,11 @@
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="9">
-            <StringItem index="0" value="0"/>
-            <StringItem index="1" value="45"/>
-            <StringItem index="2" value="90"/>
-            <StringItem index="3" value="135"/>
-            <StringItem index="4" value="180"/>
-            <StringItem index="5" value="225"/>
-            <StringItem index="6" value="270"/>
-            <StringItem index="7" value="315"/>
-            <StringItem index="8" value=" "/>
+          <StringArray count="4">
+            <StringItem index="0" value="45"/>
+            <StringItem index="1" value="90"/>
+            <StringItem index="2" value="135"/>
+            <StringItem index="3" value="180"/>
           </StringArray>
         </Property>
       </Properties>
@@ -233,7 +222,7 @@
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="10">
+          <StringArray count="15">
             <StringItem index="0" value="1"/>
             <StringItem index="1" value="2"/>
             <StringItem index="2" value="3"/>
@@ -244,6 +233,11 @@
             <StringItem index="7" value="8"/>
             <StringItem index="8" value="9"/>
             <StringItem index="9" value="10"/>
+            <StringItem index="10" value="15"/>
+            <StringItem index="11" value="20"/>
+            <StringItem index="12" value="25"/>
+            <StringItem index="13" value="30"/>
+            <StringItem index="14" value="40"/>
           </StringArray>
         </Property>
       </Properties>

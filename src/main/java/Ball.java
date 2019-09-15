@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.lang.reflect.InvocationTargetException;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -24,77 +25,15 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
 
         public Ball(String ballcolor,int vel,int orient) {
             setLayout(null);
-            if (ballcolor == "red") {
-                color = Color.red;
-            } else if (ballcolor == "blue") {
-                color = Color.blue;
-            } else if (ballcolor == "black") {
-                color = Color.black;
-            } else if (ballcolor == "cyan") {
-                color = Color.cyan;
-            } else if (ballcolor == "darkGray") {
-                color = Color.darkGray;
-            } else if (ballcolor == "gray") {
-                color = Color.gray;
-            } else if (ballcolor == "green") {
-                color = Color.green;
-            } else if (ballcolor == "yellow") {
-                color = Color.yellow;
-            } else if (ballcolor == "lightGray") {
-                color = Color.lightGray;
-            } else if (ballcolor == "magenta") {
-                color = Color.magenta;
-            } else if (ballcolor == "orange") {
-                color = Color.orange;
-            } else if (ballcolor == "pink") {
-                color = Color.pink;
-            } else if (ballcolor == "white") {
-                color = Color.white;
-            }
-            
-            
+            setBallColor(ballcolor);
             orientacion = orient;
             velocidad= vel;
-           
             ballcol= ballcolor;
-
             new Thread(this).start();
 
         }
         public Ball(){
             setLayout(null);
-            String ballcolor = "green";
-            orientacion = 90;
-            velocidad= 5;
-           
-            ballcol= ballcolor;
-            if (ballcolor == "red") {
-                color = Color.red;
-            } else if (ballcolor == "blue") {
-                color = Color.blue;
-            } else if (ballcolor == "black") {
-                color = Color.black;
-            } else if (ballcolor == "cyan") {
-                color = Color.cyan;
-            } else if (ballcolor == "darkGray") {
-                color = Color.darkGray;
-            } else if (ballcolor == "gray") {
-                color = Color.gray;
-            } else if (ballcolor == "green") {
-                color = Color.green;
-            } else if (ballcolor == "yellow") {
-                color = Color.yellow;
-            } else if (ballcolor == "lightGray") {
-                color = Color.lightGray;
-            } else if (ballcolor == "magenta") {
-                color = Color.magenta;
-            } else if (ballcolor == "orange") {
-                color = Color.orange;
-            } else if (ballcolor == "pink") {
-                color = Color.pink;
-            } else if (ballcolor == "white") {
-                color = Color.white;
-            }
 
             new Thread(this).start();
 
@@ -113,8 +52,29 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
             return orientacion;
         }
     
-        public void setBallColor(String ballColor) {
-            this.ballcol = ballColor;
+        public void setBallColor(String ballcolor) {
+            this.ballcol = ballcolor;
+            if (ballcolor == "red") {
+                color = Color.red;
+            } else if (ballcolor == "blue") {
+                color = Color.blue;
+            } else if (ballcolor == "black") {
+                color = Color.black;
+            } else if (ballcolor == "cyan") {
+                color = Color.cyan;
+            
+            } else if (ballcolor == "green") {
+                color = Color.green;
+            } else if (ballcolor == "yellow") {
+                color = Color.yellow;
+            
+            } else if (ballcolor == "magenta") {
+                color = Color.magenta;
+            } else if (ballcolor == "orange") {
+                color = Color.orange;
+            } else if (ballcolor == "pink") {
+                color = Color.pink;
+            }
         }
         
         public void setVelocidad(int v) {
@@ -143,7 +103,7 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
 
         @Override
         public Dimension getPreferredSize() {
-            return new Dimension(15, 15);
+            return new Dimension(11, 11);
         }
         
         //public void run() {}
@@ -239,7 +199,6 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
 
             int x = getX();
             int y = getY();
-
             
             if (y + velocidad < 0 || y + diameter + velocidad > getParent().getHeight()) {
                 velocidad *= -1;
@@ -259,10 +218,10 @@ public class Ball extends JPanel implements Runnable,IPrototype<Ball>{
             int y = getY();
 
             
-            if (y + velocidad < 0 || y + diameter + velocidad > getParent().getHeight()) {
+            if (y + velocidad < 0 || y + diameter + velocidad  > getParent().getHeight()) {
                 velocidad *= -1;
             }
-            if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
+            if (x + velocidad*-1 < 0 || x + diameter + velocidad*-1 > getParent().getWidth()) {
                 velocidad *= -1;
             }
             x -= velocidad;
