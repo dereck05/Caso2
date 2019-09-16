@@ -62,18 +62,6 @@ public abstract class ObjectPool implements IObjectPool, IObjectFactory{
 
         return arr2;
    }
-		
-      
-   
-   
- 
-	
-   //shutdown() method: will close down the pool.
-   
-   @Override
-   public void shutdown() {
-      objects.clear();
-   }
 	
    //return size of the pool
    public int size() {

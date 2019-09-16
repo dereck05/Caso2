@@ -10,8 +10,5 @@
  */
 public interface IObjectPool<T> {
     public T getObjects(int x);
-    
- 
- 
-    void shutdown();
+
 }

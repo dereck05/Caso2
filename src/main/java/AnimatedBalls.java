@@ -11,21 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class AnimatedBalls {
     ArrayList<Ball> arr = new ArrayList();      //arraylist que proviene de algun patron
-
     public static JFrame frame =new JFrame();
-   
-//    public static void main(String[] args) {      
-//        ArrayList<Ball> array = new ArrayList();
-//        for(int i=0;i<10;i++){
-//            array.add(new Ball("blue",15,15,180));           //color,velocid X, velocid Y, angulo
-//            array.add(new Ball("green",10,10,90));
-//        }
-//        
-//        BallPool p = new BallPool(20);
-//        p.init();
-//        new AnimatedBalls(array);
-//    }
-
     public AnimatedBalls(ArrayList<Ball> array) {
         this.arr = array;
         
